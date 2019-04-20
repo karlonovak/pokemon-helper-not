@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<configuration debug="false">
+
+  <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="logFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${user.home}/pokemon-log/pokemon.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${user.home}/pokemon-log/pokemon.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+          <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${user.home}/pokemon-log/pokemon_error.log</file>
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>ERROR</level>
+    </filter>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${user.home}/pokemon-log/pokemon_error.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+
+      <!-- keep 30 days' worth of history -->
+      <maxHistory>30</maxHistory>
+      <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+          <maxFileSize>10MB</maxFileSize>
+      </timeBasedFileNamingAndTriggeringPolicy>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{yyyy-MM-dd} %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="hr.kn" level="info" />
+  <logger name=" hr.mk.config" level="debug" />
+    
+  <logger name="org.springframework.web" level="info" />
+  <logger name="org.springframework.security" level="info" />
+
+  <root level="info">
+    <appender-ref ref="stdout" />
+    <appender-ref ref="logFile" />
+    <appender-ref ref="errorFile" />
+  </root>
+</configuration>

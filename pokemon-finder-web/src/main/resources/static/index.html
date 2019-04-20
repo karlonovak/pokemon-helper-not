@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokemon helper not</title>
+<link rel="stylesheet" href="bootstrap.min.css">
+<style type="text/css">
+html, 
+body {
+    height: 100%;
+}
+body {
+    background: 		 url(pokemon.jpg);
+	background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="pokemon.js"></script>
+</head>
+<body>
+
+<div class="bs-example bs-navbar-top-example" data-example-id="navbar-static-top"> 
+	<nav class="navbar navbar-inverse navbar-static-top"> 
+	<div class="container-fluid"> 
+	<div class="navbar-header"> 
+		<button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-8" aria-expanded="false"> 
+		<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+		<span class="icon-bar"></span> 
+		</button> <a href="#" class="navbar-left"><img src="pokeball.png" width="65"></a><a href="#" class="navbar-brand">Pokemon GO Helper... NOT!</a> 
+	</div> 
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-8"> 
+		<ul class="nav navbar-nav"> 
+			<li class="active"> <a href="#">Home</a></li>
+		</ul> 
+		<ul class="nav navbar-nav navbar-right">
+        <li>
+         	<a href="#" id="messageLogin"></a>
+       </li>
+        <li>
+         	<a href="#" data-toggle="modal" data-target="#myModal">
+         	<b>Login</b>
+         	</a>
+         </li> 
+		</ul>
+	</div> 
+	</div> 
+	</nav> 
+</div>
+
+<div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+			<div class="input-group">
+			<input id="koordinate" class="form-control" placeholder="Unesite koordinate..."/>
+		      <span class="input-group-btn">
+			<button id="uloviPokemona" class="btn btn-primary" type="button">Ulovi!</button>
+		      </span>
+		    </div>
+			<div style="text-align: center"><img id="loader2" src="ajax-loader.gif" style="display: none"/></div>
+			<div id="messageCatch" class="alert alert-info "></div>
+<!--         <div class="col-md-4">
+			<button type="button" id="1" class="btn btn-primary scanButton">Show Samobor pokemons</button>
+			<button type="button" id="2" class="btn btn-primary scanButton">Show Maksimir pokemons</button>
+			<img id="loader1" src="ajax-loader.gif" style="display: none"/>
+			<div id="scannedPokemonsDiv" class="alert alert-success">
+				<ul id="scannedPokemonsUl"></ul>
+			</div>
+        </div> -->
+ </div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Prijava</h4>
+      </div>
+      <div class="modal-body">
+      
+      <form role="form">
+  <div class="form-group">
+    <label for="email">Google address:</label>
+    <input type="email" class="form-control" id="username">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Google password:</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+</form>
+
+<div id="errorLogin" class="alert alert-danger" style="display: none">
+  <strong>Neuspješan login!</strong> Pokušajte opet s drugim podacima.
+</div>
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+        <button id="buttonLogin" type="button" class="btn btn-primary">Prijava</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
